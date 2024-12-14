@@ -8,9 +8,17 @@ namespace Store.Shared;
 public class BCryptPasswordHasher : IPasswordHasher, ISingletonDependency
 {
     /// <inheritdoc />
-    public string HashPassword(string password) => BCrypt.Net.BCrypt.HashPassword(password);
+    public string HashPassword(string password)
+    {
+        ArgumentNullException.ThrowIfNull(password, nameof(password));
+        return BCrypt.Net.BCrypt.HashPassword(password);
+    }
 
     /// <inheritdoc />
-    public bool VerifyHashedPassword(string hashedPassword, string providedPassword) =>
-        BCrypt.Net.BCrypt.Verify(providedPassword, hashedPassword);
+    public bool VerifyHashedPassword(string hashedPassword, string providedPassword)
+    {
+        ArgumentNullException.ThrowIfNull(hashedPassword, nameof(hashedPassword));
+        ArgumentNullException.ThrowIfNull(providedPassword, nameof(providedPassword));
+        return BCrypt.Net.BCrypt.Verify(providedPassword, hashedPassword);
+    }
 }

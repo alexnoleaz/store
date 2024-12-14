@@ -14,8 +14,11 @@ public class MicrosoftLogger<TCategory> : ILogger<TCategory>
     /// Initializes a new instance of the <see cref="MicrosoftLogger{T}"/> class.
     /// </summary>
     /// <param name="logger">The underlying Microsoft.Extensions.Logging logger.</param>
-    public MicrosoftLogger(Microsoft.Extensions.Logging.ILogger<TCategory> logger) =>
+    public MicrosoftLogger(Microsoft.Extensions.Logging.ILogger<TCategory> logger)
+    {
+        ArgumentNullException.ThrowIfNull(logger, nameof(logger));
         _logger = logger;
+    }
 
     /// <inheritdoc />
     public void Debug(string? message, params object?[] args) => _logger.LogDebug(message, args);

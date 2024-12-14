@@ -11,6 +11,9 @@ public interface IObjectMapper
     /// <typeparam name="TDestination">The type of the destination object.</typeparam>
     /// <param name="source">The source object to map.</param>
     /// <returns>A new instance of <typeparamref name="TDestination"/>.</returns>
+    /// <exception cref="ArgumentNullException">
+    /// Thrown if <paramref name="source"/> is <c>null</c>.
+    /// </exception>
     TDestination Map<TDestination>(object source);
 
     /// <summary>
@@ -21,6 +24,9 @@ public interface IObjectMapper
     /// <param name="source">The source object to map.</param>
     /// <param name="destination">The existing destination object to populate.</param>
     /// <returns>The populated <typeparamref name="TDestination"/> instance.</returns>
+    /// <exception cref="ArgumentNullException">
+    /// Thrown if <paramref name="source"/> or <paramref name="destination"/> is <c>null</c>.
+    /// </exception>
     TDestination Map<TSource, TDestination>(TSource source, TDestination destination);
 
     /// <summary>
@@ -29,5 +35,8 @@ public interface IObjectMapper
     /// <typeparam name="TDestination">The type of the destination objects in the query.</typeparam>
     /// <param name="source">The queryable source to project.</param>
     /// <returns>A queryable collection of <typeparamref name="TDestination"/>.</returns>
+    /// <exception cref="ArgumentNullException">
+    /// Thrown if <paramref name="source"/> is <c>null</c>.
+    /// </exception>
     IQueryable<TDestination> ProjectTo<TDestination>(IQueryable source);
 }

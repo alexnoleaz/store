@@ -14,16 +14,33 @@ public class AutoMapperObjectMapper : IObjectMapper, ISingletonDependency
     /// Initializes a new instance of the <see cref="AutoMapperObjectMapper"/> class.
     /// </summary>
     /// <param name="mapper">The AutoMapper <see cref="IMapper"/> instance to use.</param>
-    public AutoMapperObjectMapper(IMapper mapper) => _mapper = mapper;
+    /// <exception cref="ArgumentNullException">
+    /// Thrown if <paramref name="mapper"/> is <c>null</c>.
+    /// </exception>
+    public AutoMapperObjectMapper(IMapper mapper)
+    {
+        ArgumentNullException.ThrowIfNull(mapper, nameof(mapper));
+        _mapper = mapper;
+    }
 
     /// <inheritdoc />
-    public TDestination Map<TDestination>(object source) => _mapper.Map<TDestination>(source);
+    public TDestination Map<TDestination>(object source)
+    {
+        ArgumentNullException.ThrowIfNull(source, nameof(source));
+        return _mapper.Map<TDestination>(source);
+    }
 
     /// <inheritdoc />
-    public TDestination Map<TSource, TDestination>(TSource source, TDestination destination) =>
-        _mapper.Map(source, destination);
+    public TDestination Map<TSource, TDestination>(TSource source, TDestination destination)
+    {
+        ArgumentNullException.ThrowIfNull(source, nameof(source));
+        return _mapper.Map(source, destination);
+    }
 
     /// <inheritdoc />
-    public IQueryable<TDestination> ProjectTo<TDestination>(IQueryable source) =>
-        _mapper.ProjectTo<TDestination>(source);
+    public IQueryable<TDestination> ProjectTo<TDestination>(IQueryable source)
+    {
+        ArgumentNullException.ThrowIfNull(source, nameof(source));
+        return _mapper.ProjectTo<TDestination>(source);
+    }
 }
