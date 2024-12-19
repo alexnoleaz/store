@@ -1,0 +1,70 @@
+{
+  "version": "2.0.0",
+  "tasks": [
+    {
+      "label": "Restore Solution",
+      "command": "dotnet",
+      "type": "process",
+      "args": ["restore", "${workspaceFolder}"]
+    },
+    {
+      "label": "Clean Solution",
+      "command": "dotnet",
+      "type": "process",
+      "args": ["clean", "${workspaceFolder}"]
+    },
+    {
+      "label": "Build Solution",
+      "command": "dotnet",
+      "type": "process",
+      "args": ["build", "${workspaceFolder}"],
+      "problemMatcher": "$msCompile",
+      "group": {
+        "kind": "build",
+        "isDefault": true
+      }
+    },
+    {
+      "label": "Build Domain Project",
+      "command": "dotnet",
+      "type": "process",
+      "args": ["build", "${workspaceFolder}/src/Store.Domain"],
+      "problemMatcher": "$msCompile"
+    },
+    {
+      "label": "Build Application Project",
+      "command": "dotnet",
+      "type": "process",
+      "args": ["build", "${workspaceFolder}/src/Store.Application"],
+      "problemMatcher": "$msCompile"
+    },
+    {
+      "label": "Build Infrastructure Project",
+      "command": "dotnet",
+      "type": "process",
+      "args": ["build", "${workspaceFolder}/src/Store.Infrastructure"],
+      "problemMatcher": "$msCompile"
+    },
+    {
+      "label": "Build WebApi Project",
+      "command": "dotnet",
+      "type": "process",
+      "args": ["build", "${workspaceFolder}/src/Store.WebApi"],
+      "problemMatcher": "$msCompile"
+    },
+    {
+      "label": "Run WebApi Project",
+      "command": "dotnet",
+      "type": "process",
+      "args": ["run", "--project", "${workspaceFolder}/src/Store.WebApi"],
+      "problemMatcher": "$msCompile"
+    },
+    {
+      "label": "Run WebApi Project (Watch)",
+      "command": "dotnet",
+      "type": "process",
+      "args": ["watch", "--project", "${workspaceFolder}/src/Store.WebApi"],
+      "problemMatcher": "$msCompile"
+    }
+  ]
+}

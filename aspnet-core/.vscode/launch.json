@@ -1,0 +1,21 @@
+{
+  "version": "0.2.0",
+  "configurations": [
+    {
+      "name": "CoreClr: .NET Core Launch (WebApi)",
+      "type": "coreclr",
+      "request": "launch",
+      "preLaunchTask": "Build Solution",
+      "program": "${workspaceFolder}/src/Store.WebApi/bin/Debug/net8.0/Store.WebApi.dll",
+      "cwd": "${workspaceFolder}"
+    },
+    {
+      "name": "NetCoreDbg: .NET Core Launch (WebApi)",
+      "type": "netcoredbg",
+      "request": "launch",
+      "preLaunchTask": "Build Solution",
+      "program": "${workspaceFolder}/src/Store.WebApi/bin/Debug/net8.0/Store.WebApi.dll",
+      "cwd": "${workspaceFolder}"
+    }
+  ]
+}
