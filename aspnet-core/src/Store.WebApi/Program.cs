@@ -1,7 +1,12 @@
-﻿var builder = WebApplication.CreateBuilder(args);
+﻿using Store.Shared.Dependencies;
+using Store.Shared.Reflection;
+
+var builder = WebApplication.CreateBuilder(args);
+var assemblies = AssemblyHelper.GetAssemblies(TypeHelper.Get<Program>());
 
 // Add services to the container.
 
+builder.Services.AddConventionalServices(assemblies);
 builder.Services.AddControllers();
 
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
