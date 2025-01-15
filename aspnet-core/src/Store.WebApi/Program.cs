@@ -6,6 +6,7 @@ var assemblies = AssemblyHelper.GetAssemblies(TypeHelper.Get<Program>());
 
 // Add services to the container.
 
+builder.Services.AddCoreServices(builder.Configuration, assemblies);
 builder.Services.AddConventionalServices(assemblies);
 builder.Services.AddControllers();
 
