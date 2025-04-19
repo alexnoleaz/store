@@ -8,6 +8,8 @@ builder.Services.AddControllers();
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 
+builder.Services.AddAutoMapper(assemblies);
+
 assemblies.ForEach(assembly =>
     ConventionalRegistrar.RegisterAssemblyByConvention(builder.Services, assembly)
 );
