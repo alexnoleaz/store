@@ -1,6 +1,7 @@
 using System.Reflection;
 using Store.Shared.Dependency;
 using Store.Shared.Repositories.EntityFrameworkCore;
+using Store.Shared.Repositories.EntityFrameworkCore.Configuration;
 
 var builder = WebApplication.CreateBuilder(args);
 var assemblies = new List<Assembly> { typeof(Program).Assembly };
@@ -10,7 +11,7 @@ builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 builder.Services.AddAutoMapper(assemblies);
 
-EntityFrameworkCoreConfigurer.Configure(builder.Services);
+EntityFrameworkCoreConfigurer.Configure(builder.Services, builder.Configuration);
 
 assemblies.ForEach(assembly =>
     ConventionalRegistrar.RegisterAssemblyByConvention(builder.Services, assembly)
