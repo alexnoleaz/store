@@ -31,6 +31,7 @@ namespace Store.Infrastructure.Shared.Repositories.EntityFrameworkCore.Migration
 
                     b.Property<string>("Name")
                         .IsRequired()
+                        .HasMaxLength(100)
                         .HasColumnType("varchar");
 
                     b.Property<decimal>("Price")
@@ -39,6 +40,7 @@ namespace Store.Infrastructure.Shared.Repositories.EntityFrameworkCore.Migration
 
                     b.Property<string>("Sku")
                         .IsRequired()
+                        .HasMaxLength(20)
                         .HasColumnType("varchar");
 
                     b.Property<int>("Status")

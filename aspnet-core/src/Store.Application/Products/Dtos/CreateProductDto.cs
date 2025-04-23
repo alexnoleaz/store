@@ -1,8 +1,6 @@
-using Store.Shared.Entities;
+namespace Store.Products.Dtos;
 
-namespace Store.Products;
-
-public class Product : Entity
+public class CreateProductDto
 {
     public string Sku { get; set; } = null!;
     public string Name { get; set; } = null!;

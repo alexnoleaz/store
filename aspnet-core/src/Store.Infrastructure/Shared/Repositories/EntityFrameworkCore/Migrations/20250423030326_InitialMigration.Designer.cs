@@ -11,7 +11,7 @@ using Store.Shared.Repositories.EntityFrameworkCore;
 namespace Store.Infrastructure.Shared.Repositories.EntityFrameworkCore.Migrations
 {
     [DbContext(typeof(StoreDbContext))]
-    [Migration("20250422192404_InitialMigration")]
+    [Migration("20250423030326_InitialMigration")]
     partial class InitialMigration
     {
         /// <inheritdoc />
@@ -34,6 +34,7 @@ namespace Store.Infrastructure.Shared.Repositories.EntityFrameworkCore.Migration
 
                     b.Property<string>("Name")
                         .IsRequired()
+                        .HasMaxLength(100)
                         .HasColumnType("varchar");
 
                     b.Property<decimal>("Price")
@@ -42,6 +43,7 @@ namespace Store.Infrastructure.Shared.Repositories.EntityFrameworkCore.Migration
 
                     b.Property<string>("Sku")
                         .IsRequired()
+                        .HasMaxLength(20)
                         .HasColumnType("varchar");
 
                     b.Property<int>("Status")

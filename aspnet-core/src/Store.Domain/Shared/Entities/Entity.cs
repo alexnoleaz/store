@@ -18,4 +18,4 @@ public abstract class Entity<TPrimaryKey> : IEntity<TPrimaryKey>
     }
 }
 
-public abstract class Entity : Entity<int> { }
+public abstract class Entity : Entity<int>, IEntity { }

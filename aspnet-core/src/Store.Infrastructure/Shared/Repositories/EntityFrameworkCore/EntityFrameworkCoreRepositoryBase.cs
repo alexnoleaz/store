@@ -247,7 +247,8 @@ public class EntityFrameworkCoreRepositoryBase<TEntity, TPrimaryKey>
 }
 
 public class EntityFrameworkCoreRepositoryBase<TEntity>
-    : EntityFrameworkCoreRepositoryBase<TEntity, int>
+    : EntityFrameworkCoreRepositoryBase<TEntity, int>,
+        IRepository<TEntity>
     where TEntity : class, IEntity
 {
     public EntityFrameworkCoreRepositoryBase(StoreDbContext context)

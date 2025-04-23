@@ -16,8 +16,8 @@ namespace Store.Infrastructure.Shared.Repositories.EntityFrameworkCore.Migration
                 {
                     Id = table.Column<int>(type: "int", nullable: false)
                         .Annotation("SqlServer:Identity", "1, 1"),
-                    Sku = table.Column<string>(type: "varchar", nullable: false),
-                    Name = table.Column<string>(type: "varchar", nullable: false),
+                    Sku = table.Column<string>(type: "varchar(20)", maxLength: 20, nullable: false),
+                    Name = table.Column<string>(type: "varchar(100)", maxLength: 100, nullable: false),
                     Stock = table.Column<int>(type: "int", nullable: false),
                     Price = table.Column<decimal>(type: "decimal(18,2)", precision: 18, scale: 2, nullable: false),
                     Status = table.Column<int>(type: "int", nullable: false)
