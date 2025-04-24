@@ -1,0 +1,9 @@
+form {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  max-width: 400px;
+}
+label {
+  font-weight: bold;
+}

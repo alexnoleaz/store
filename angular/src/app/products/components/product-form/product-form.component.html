@@ -1,0 +1,12 @@
+<h2>{{ id ? "Editar Producto" : "Nuevo Producto" }}</h2>
+<form [formGroup]="form" (ngSubmit)="save()">
+  <label>Nombre:</label>
+  <input formControlName="name" />
+  <label>SKU:</label>
+  <input formControlName="sku" />
+  <label>Precio:</label>
+  <input type="number" formControlName="price" />
+  <label>Stock:</label>
+  <input type="number" formControlName="stock" />
+  <button type="submit">Guardar</button>
+</form>

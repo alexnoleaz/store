@@ -57,6 +57,7 @@ var context = scope.ServiceProvider.GetRequiredService<StoreDbContext>();
 await ProductSeeder.SeedAsync(context);
 
 // app.UseHttpsRedirection();
+app.UseCors(defaultPolicyName);
 app.UseAuthorization();
 app.MapControllers();
 app.Run();
